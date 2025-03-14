@@ -11,6 +11,7 @@ import (
 	"strings"
 )
 
+
 // hexDecode decodes a string that may be prefixed with " and/or 0x. Thus,
 // "0x00" and 0x00 or 00 are all valid hex encodings. If length is provided the
 // decoded size must exactly match. The length parameter will be ignored if it
@@ -27,6 +28,8 @@ func hexDecode(data []byte, length int) ([]byte, error) {
 	return s, nil
 }
 
+
+
 // ByteSlice is used to hex encode addresses in JSON structs.
 type ByteSlice []byte
 
@@ -34,6 +37,9 @@ type ByteSlice []byte
 func (bs ByteSlice) String() string {
 	return hex.EncodeToString(bs)
 }
+
+
+
 
 func (bs ByteSlice) MarshalJSON() ([]byte, error) {
 	return json.Marshal(bs.String())
